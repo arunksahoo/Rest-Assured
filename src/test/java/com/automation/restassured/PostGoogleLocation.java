@@ -24,8 +24,7 @@ public class PostGoogleLocation {
 				.response();
 
 		// Task 2- Grab the Place ID from response
-
-		String responseString = res.asString();
+        String responseString = res.asString();
 		System.out.println(responseString);
 		JsonPath js = new JsonPath(responseString);
 		String placeid = js.get("place_id");

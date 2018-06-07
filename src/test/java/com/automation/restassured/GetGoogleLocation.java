@@ -12,8 +12,6 @@ import com.automation.commonfunctionalites.ReusableMethods;
 public class GetGoogleLocation {
 	@Test
 	public void getPlaceAPI() {
-		// TODO Auto-generated method stub
-
 		// BaseURL or Host
 		RestAssured.baseURI = ReusableMethods.readPropertiesFile("baseUrlApi");
 		given().param("location", "-33.8670522,151.1957362").param("radius", "1500")
