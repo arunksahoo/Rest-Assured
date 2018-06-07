@@ -18,12 +18,11 @@ public class PostGoogleLocation {
 
 		// Task 1- Grab the response
 		RestAssured.baseURI = ReusableMethods.readPropertiesFile("baseUrlApi");
-		Response res = given().
+		Response res = given().queryParam("key", ReusableMethods.readPropertiesFile("Key"))
+				.body(PayLoad.createLocationApi()).when().post(ResourceFile.createLocationApi()).then().assertThat()
+				.statusCode(200).and().contentType(ContentType.JSON).and().body("status", equalTo("OK")).extract()
+				.response();
 
-				queryParam("key", ReusableMethods.readPropertiesFile("Key")).body(PayLoad.createLocationApi()).when()
-				.post(ResourceFile.createLocationApi()).then().assertThat().statusCode(200).and()
-				.contentType(ContentType.JSON).and().body("status", equalTo("OK")).extract().response();
-		
 		// Task 2- Grab the Place ID from response
 
 		String responseString = res.asString();
@@ -33,10 +32,10 @@ public class PostGoogleLocation {
 		System.out.println(placeid);
 
 		// Task 3 place this place id in the Delete request
-		given().queryParam("key", ReusableMethods.readPropertiesFile("Key")).
-
-				body("{" + "\"place_id\": \"" + placeid + "\"" + "}").when().post(ResourceFile.deleteLocationApi()).then()
-				.assertThat().statusCode(200).and().contentType(ContentType.JSON).and().body("status", equalTo("OK"));
+		given().queryParam("key", ReusableMethods.readPropertiesFile("Key"))
+				.body("{" + "\"place_id\": \"" + placeid + "\"" + "}").when().post(ResourceFile.deleteLocationApi())
+				.then().assertThat().statusCode(200).and().contentType(ContentType.JSON).and()
+				.body("status", equalTo("OK"));
 
 	}
 }

@@ -38,7 +38,6 @@ public class ReusableMethods {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-
 		Properties prop = new Properties();
 		// load properties file
 		try {
@@ -46,9 +45,7 @@ public class ReusableMethods {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 		String Data = prop.getProperty(Value);
-
 		return Data;
 	}
 
@@ -76,7 +73,6 @@ public class ReusableMethods {
 		for (Object value : values) {
 			collectAllTheKeys(keys, value);
 		}
-
 	}
 
 	// Creating Random name
@@ -92,27 +88,25 @@ public class ReusableMethods {
 		FileOutputStream out = new FileOutputStream(
 				System.getProperty("user.dir") + readPropertiesFile("pathToCredential"));
 		prop.setProperty("Firstname", name);
-
 		prop.store(out, null);
-
 	}
+
 	// email id for new patients order items
-		public static void Lastname() throws IOException {
-			prop = new Properties();
-			input = null;
-			input = new FileInputStream(System.getProperty("user.dir") + readPropertiesFile("pathToCredential"));
-			prop.load(input);
-			String dummy = prop.getProperty("default2");
-			prop.setProperty("Lastname", dummy);
-			String name = prop.getProperty("Lastname") + RandomStringUtils.randomNumeric(4);
-			input.close();
-			FileOutputStream out = new FileOutputStream(
-					System.getProperty("user.dir") + readPropertiesFile("pathToCredential"));
-			prop.setProperty("Lastname", name);
+	public static void Lastname() throws IOException {
+		prop = new Properties();
+		input = null;
+		input = new FileInputStream(System.getProperty("user.dir") + readPropertiesFile("pathToCredential"));
+		prop.load(input);
+		String dummy = prop.getProperty("default2");
+		prop.setProperty("Lastname", dummy);
+		String name = prop.getProperty("Lastname") + RandomStringUtils.randomNumeric(4);
+		input.close();
+		FileOutputStream out = new FileOutputStream(
+				System.getProperty("user.dir") + readPropertiesFile("pathToCredential"));
+		prop.setProperty("Lastname", name);
+		prop.store(out, null);
+	}
 
-			prop.store(out, null);
-
-		}
 	// Config data file data
 	public static String CredentialValue(String Value) {
 		File file = new File("./src/main/java/com/automation/commonfunctionalites/CredentialValue.properties");
@@ -122,7 +116,6 @@ public class ReusableMethods {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-
 		Properties prop = new Properties();
 		// load properties file
 		try {
@@ -130,39 +123,31 @@ public class ReusableMethods {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 		String Data = prop.getProperty(Value);
-
 		return Data;
 	}
 
-	 public static Integer getRandomNumberInRange(int min, int max) {
+	public static Integer getRandomNumberInRange(int min, int max) {
 
-		  Random r = new Random();
-		  return r.ints(min, (max + 1)).limit(1).findFirst().getAsInt();
+		Random r = new Random();
+		return r.ints(min, (max + 1)).limit(1).findFirst().getAsInt();
+	}
 
-		 }
-	 // Creating Random number
+	// Creating Random number
 	public static void randomNumber() throws IOException {
 
 		prop = new Properties();
 		input = null;
 		input = new FileInputStream(System.getProperty("user.dir") + readPropertiesFile("pathToCredential"));
 		prop.load(input);
-
 		String dummy = prop.getProperty("default1");
 		prop.setProperty("Number", dummy);
-
-		String number = getRandomNumberInRange(1,1000000).toString();
-		
+		String number = getRandomNumberInRange(1, 1000000).toString();
 		input.close();
-
 		FileOutputStream out = new FileOutputStream(
 				System.getProperty("user.dir") + readPropertiesFile("pathToCredential"));
 		// setting email value in property file for further use
 		prop.setProperty("Number", number);
-
 		prop.store(out, null);
-		
 	}
 }

@@ -29,7 +29,6 @@ public class SoftAssertions {
 	}
 
 	public static void throwAsserationOnFailure() {
-
 		if (isAnyAssertFail > 0) {
 			isAnyAssertFail = 0;
 			exp.printStackTrace();
