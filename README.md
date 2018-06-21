@@ -75,6 +75,18 @@ Here we declaring all the reusable method which is going use in the project.
 
 ## 5. TestOutPut Folder :
       Here we can get auto generated reports, once the test execution is completed.
+      
+## Maven Switching Profile for regression and smoke test case        
+       in terminal command :  mvn test -PRegression
+                           :  mvn test -PSmoke
+## 6. Jenkin Set Up 
+        1.Download Generic java package (.war) file
+        2.in terminal move to file path
+        3.java -jar jenkins.war -httpPort-8080
+        4.Open local:8080
+        5.set jdk path
+        6.set maven path
+                                   
 
 
 

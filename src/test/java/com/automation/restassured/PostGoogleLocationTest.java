@@ -1,5 +1,6 @@
 package com.automation.restassured;
 
+import org.testng.annotations.Test;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
@@ -11,7 +12,7 @@ import com.automation.commonfunctionalites.PayLoad;
 import com.automation.commonfunctionalites.ResourceFile;
 import com.automation.commonfunctionalites.ReusableMethods;
 
-public class PostGoogleLocation {
+public class PostGoogleLocationTest {
 
 	@Test
 	public void AddandDeletePlace() {

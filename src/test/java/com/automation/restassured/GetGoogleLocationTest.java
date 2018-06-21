@@ -1,5 +1,6 @@
 package com.automation.restassured;
 
+import org.testng.annotations.Test;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import static io.restassured.RestAssured.given;
@@ -9,7 +10,8 @@ import org.testng.annotations.Test;
 import com.automation.commonfunctionalites.ResourceFile;
 import com.automation.commonfunctionalites.ReusableMethods;
 
-public class GetGoogleLocation {
+public class GetGoogleLocationTest {
+	
 	@Test
 	public void getPlaceAPI() {
 		// BaseURL or Host
